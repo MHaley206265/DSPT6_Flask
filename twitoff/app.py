@@ -6,12 +6,12 @@ def create_app():
     """
 
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///D:\\git_repos\\Unit3\\sprint3\\DSPT6_Flask\\twitoff\\twitoff.sqlite"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///D:\\git_repos\\Unit3\\sprint3\\DSPT6_Flask\\twitoff\\twitoff.sqlite3"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
 
     @app.route('/')
     def root():
-        return render_template('base.html' title='Home', users=User.query.all())
+        return render_template('base.html', title='Home', users=User.query.all())
 
     return app
